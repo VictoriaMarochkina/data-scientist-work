@@ -24,4 +24,6 @@ X_scaled = scaler.fit_transform(X)
 
 scaled_df = pd.DataFrame(X_scaled, columns=["day", "temperature"])
 
+joblib.dump(scaler, "scaler.pkl")
+
 scaled_df.to_csv(os.path.join(PROCESSED_DIR, "train_scaled.csv"), index=False)
